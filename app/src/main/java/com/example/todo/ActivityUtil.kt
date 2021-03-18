@@ -1,14 +1,11 @@
 package com.example.todo
 
-import android.app.Activity
+
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
-//
-//fun <T : ViewModel> Activity.obtainViewModel(viewModelClass: Class<T>): T {
-//    val todoRepository = (this.application as TodoApplication).todoRepository
-//    return ViewModelProvider(this as ViewModelStoreOwner, ViewModelFactory(todoRepository)).get(
-//        viewModelClass
-//    )
-//
-//}
+
+
+fun <T : ViewModel> AppCompatActivity.obtainViewModel(viewModelClass: Class<T>): T {
+    return ViewModelProvider(this).get(viewModelClass)
+}
