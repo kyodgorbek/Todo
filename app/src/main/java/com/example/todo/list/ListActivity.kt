@@ -35,13 +35,13 @@ class ListActivity : AppCompatActivity(), TodoAdapter.OnClickListener {
 
         listTodos.layoutManager = LinearLayoutManager(this)
         listTodos.adapter = adapter
-        listViewModel.allTodos.observe(this, Observer { todos ->
+        listViewModel.allTodos?.observe(this, Observer { todos ->
             todos?.let {
                 adapter.setTodos(todos)
             }
         })
 
-        listViewModel.upcomingTodosCount.observe(this, Observer { count ->
+        listViewModel.upcomingTodosCount?.observe(this, Observer { count ->
             soonValue.text = count.toString()
         })
     }
