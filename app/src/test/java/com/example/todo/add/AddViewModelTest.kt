@@ -52,4 +52,24 @@ class AddViewModelTest{
         )
 
     }
+
+    @Test
+    fun test_saveWithoutData(){
+        val repository:TodoRepository = mock()
+        val model =AddViewModel(repository)
+        val actualTitle = "Test Todo"
+        model.todo.title = actualTitle
+
+        val actual = model.save()
+        assertNull(actual)
+        verify(repository).insert(
+                argThat {
+                    title == actualTitle && dueDate == null
+                }
+        )
+
+    }
+
+
+
 }
