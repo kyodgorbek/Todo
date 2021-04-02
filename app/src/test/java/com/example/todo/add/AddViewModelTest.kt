@@ -2,11 +2,15 @@ package com.example.todo.add
 
 import com.example.todo.data.TodoRepository
 import junit.framework.Assert.*
+import org.junit.Rule
 import org.junit.Test
 import org.mockito.kotlin.*
 
 
 class AddViewModelTest{
+
+
+
 
     @Test
     fun test_save(){
@@ -17,6 +21,8 @@ class AddViewModelTest{
         val actual = model.save()
         assertNull(actual)
         verify(repository).insert(any())
+
+
 
     }
 
@@ -45,6 +51,7 @@ class AddViewModelTest{
 
         val actual = model.save()
         assertNull(actual)
+
         verify(repository).insert(
                 argThat {
                     title == actualTitle && dueDate == actualDate
@@ -62,6 +69,7 @@ class AddViewModelTest{
 
         val actual = model.save()
         assertNull(actual)
+        verify(repository).insert(any())
         verify(repository).insert(
                 argThat {
                     title == actualTitle && dueDate == null
